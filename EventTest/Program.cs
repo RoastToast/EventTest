@@ -1,12 +1,19 @@
-﻿using System;
+﻿using EventTest.Shipment;
+using System;
 
 namespace EventTest
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ShipmentManager shipmentManager = new ShipmentManager();
+            shipmentManager.AddLabelMaker(new LabelMaker());
+            shipmentManager.AddLabelMaker(new LabelMaker());
+            shipmentManager.AddLabelMaker(new LabelMaker());
+            shipmentManager.AddPackageScanner(new PackageScanner());
+            shipmentManager.CreatePackage("abcd1234");
+            shipmentManager.CreatePackage("1234abcd");
         }
     }
 }
